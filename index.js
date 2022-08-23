@@ -8,11 +8,13 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/user", router);
 app.use("/api/blogs",router1)
+
+const PORT=process.env.PORT||"5000";
 mongoose
   .connect(
     "mongodb://root:root@ac-6y9wzjv-shard-00-00.oo6motq.mongodb.net:27017,ac-6y9wzjv-shard-00-01.oo6motq.mongodb.net:27017,ac-6y9wzjv-shard-00-02.oo6motq.mongodb.net:27017/?ssl=true&replicaSet=atlas-khltse-shard-0&authSource=admin&retryWrites=true&w=majority"
   )
-  .then(() => app.listen(5000))
+  .then(() => app.listen((PORT)))
   .then(() =>
     console.log("connected to database and listening at port no 5000")
   )
