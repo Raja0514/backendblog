@@ -8,7 +8,9 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/user", router);
 app.use("/api/blogs",router1)
-
+app.get('/',(req,res)=>{
+  res.send("hello world")
+})
 const PORT=process.env.PORT||"5000";
 mongoose
   .connect(
